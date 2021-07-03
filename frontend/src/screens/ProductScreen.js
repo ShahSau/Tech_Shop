@@ -65,6 +65,7 @@ function ProductScreen({match}) {
                                     </Col>
                                     <Col>
                                         {product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}
+                                        {console.log(typeof(product.countInStock))}
                                     </Col>
                                 </Row>
                            </ListGroup.Item>
