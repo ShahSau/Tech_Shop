@@ -9,10 +9,10 @@ import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 
 function PlaceOrderScreen({ history }) {
 
-    // const orderCreate = useSelector(state => state.orderCreate)
-    // const { order, error, success } = orderCreate
+    const orderCreate = useSelector(state => state.orderCreate)
+    const { order, error, success } = orderCreate
 
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart)
 
@@ -23,28 +23,28 @@ function PlaceOrderScreen({ history }) {
     cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)).toFixed(2)
 
 
-    // if (!cart.paymentMethod) {
-    //     history.push('/payment')
-    // }
+    if (!cart.paymentMethod) {
+        history.push('/payment')
+    }
 
-    // useEffect(() => {
-    //     if (success) {
-    //         history.push(`/order/${order._id}`)
-    //         dispatch({ type: ORDER_CREATE_RESET })
-    //     }
-    // }, [success, history])
+    useEffect(() => {
+        if (success) {
+            history.push(`/order/${order._id}`)
+            dispatch({ type: ORDER_CREATE_RESET })
+        }
+    }, [success, history])
 
     const placeOrder = () => {
-    //     dispatch(createOrder({
-    //         orderItems: cart.cartItems,
-    //         shippingAddress: cart.shippingAddress,
-    //         paymentMethod: cart.paymentMethod,
-    //         itemsPrice: cart.itemsPrice,
-    //         shippingPrice: cart.shippingPrice,
-    //         taxPrice: cart.taxPrice,
-    //         totalPrice: cart.totalPrice,
-    //  }))
-        console.log("jhhhhhh")
+        dispatch(createOrder({
+            orderItems: cart.cartItems,
+            shippingAddress: cart.shippingAddress,
+            paymentMethod: cart.paymentMethod,
+            itemsPrice: cart.itemsPrice,
+            shippingPrice: cart.shippingPrice,
+            taxPrice: cart.taxPrice,
+            totalPrice: cart.totalPrice,
+     }))
+
      }
 
     return (
@@ -142,7 +142,7 @@ function PlaceOrderScreen({ history }) {
 
 
                             <ListGroup.Item>
-                                {/* {error && <Message variant='danger'>{error}</Message>} */}
+                                {error && <Message variant='danger'>{error}</Message>}
                             </ListGroup.Item>
 
                             <ListGroup.Item>
