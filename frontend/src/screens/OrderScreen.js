@@ -21,11 +21,11 @@ function OrderScreen({ match, history }) {
     const orderPay = useSelector(state => state.orderPay)
     const { loading: loadingPay, success: successPay } = orderPay
 
-    // const orderDeliver = useSelector(state => state.orderDeliver)
-    // const { loading: loadingDeliver, success: successDeliver } = orderDeliver
+    const orderDeliver = useSelector(state => state.orderDeliver)
+    const { loading: loadingDeliver, success: successDeliver } = orderDeliver
 
-    // const userLogin = useSelector(state => state.userLogin)
-    // const { userInfo } = userLogin
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
 
 
     if (!loading && !error) {
@@ -47,13 +47,12 @@ function OrderScreen({ match, history }) {
     }
 
     useEffect(() => {
+        if (!userInfo) {
+            history.push('/login')
+        }
 
-        // if (!userInfo) {
-        //     history.push('/login')
-        // }
-
-        // || successDeliver
-        if (!order || successPay || order._id !== Number(orderId) ) {
+        // 
+        if (!order || successPay || order._id !== Number(orderId) || successDeliver) {
             dispatch({ type: ORDER_PAY_RESET })
             dispatch({ type: ORDER_DELIVER_RESET })
 
@@ -65,7 +64,7 @@ function OrderScreen({ match, history }) {
                 setSdkReady(true)
             }
         }
-    }, [dispatch, order, orderId, successPay])
+    }, [dispatch, order, orderId, successPay, successDeliver])
 
 
     const successPaymentHandler = (paymentResult) => {
@@ -202,7 +201,7 @@ function OrderScreen({ match, history }) {
                                         </ListGroup.Item>
                                     )}
                                 </ListGroup>
-                                {/* {loadingDeliver && <Loader />}
+                                {loadingDeliver && <Loader />} 
                                 {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
                                     <ListGroup.Item>
                                         <Button
@@ -213,7 +212,7 @@ function OrderScreen({ match, history }) {
                                             Mark As Delivered
                                         </Button>
                                     </ListGroup.Item>
-                                )} */}
+                                )} 
                             </Card>
                         </Col>
                     </Row>
