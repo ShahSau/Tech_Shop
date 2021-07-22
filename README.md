@@ -1,3 +1,3 @@
 # Tech_Shop
 
-Technologies used: React, Django,Django-Rest, bootstrap, simpleJWT Authentication, postgresql
+Technologies used: React, Django, Django-Rest, Bootstrap, simpleJWT Authentication, Postgresql
