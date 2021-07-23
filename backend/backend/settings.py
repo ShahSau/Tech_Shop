@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+a*s!fx10=-a-13g^g*5#khuce@zpdwkki&uk!wt=8#dh9fc!@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'techshop-shah.herokuapp.com']
 
 
 # Application definition
@@ -90,7 +90,7 @@ SIMPLE_JWT = {
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -192,6 +192,9 @@ STATICFILES_DIRS=[
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
 CORS_ALLOW_ALL_ORIGINS= True
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -204,6 +207,8 @@ AWS_SECRET_ACCESS_KEY= '5VqFcJdRp+q7NjVNN6XiQnzYgnCeyI2dNO6AuPBR'
 AWS_STORAGE_BUCKET_NAME='techshop-bucket'
 
 
+if os.getcwd() == '/app':
+    DEBUG = False
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
