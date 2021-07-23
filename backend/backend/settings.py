@@ -134,10 +134,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'TechShop',
-        'USER': 'postgres',
+        'NAME': 'techShop',
+        'USER': 'root',
         'PASSWORD':'74247427sauROV',
-        'HOST': 'localhost',
+        'HOST': 'tech-shop-identifier.c5hzgjgcuktl.us-east-2.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
