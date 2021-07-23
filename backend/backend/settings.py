@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_framework',
     'corsheaders',
+    'storages',
+
     'base.apps.BaseConfig',
 ]
 
@@ -190,6 +193,17 @@ STATICFILES_DIRS=[
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
 CORS_ALLOW_ALL_ORIGINS= True
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+AWS_QUERYSTRING_AUTH= False
+
+AWS_ACCESS_KEY_ID = 'AKIAVWJK6OW6AXAL6JF5'
+AWS_SECRET_ACCESS_KEY= '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'
+AWS_STORAGE_BUCKET_NAME='techshop-bucket'
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
