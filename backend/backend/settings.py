@@ -20,7 +20,7 @@ import os
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+a*s!fx10=-a-13g^g*5#khuce@zpdwkki&uk!wt=8#dh9fc!@'
+SECRET_KEY = '********************************'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -139,7 +139,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'techShop',
         'USER': 'root',
-        'PASSWORD':'74247427sauROV',
+        'PASSWORD':'****************',
         'HOST': 'tech-shop-identifier.c5hzgjgcuktl.us-east-2.rds.amazonaws.com',
         'PORT': '5432'
     }
@@ -202,8 +202,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_QUERYSTRING_AUTH= False
 
-AWS_ACCESS_KEY_ID = 'AKIAVWJK6OW6AXAL6JF5'
-AWS_SECRET_ACCESS_KEY= '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'
+AWS_ACCESS_KEY_ID = '********'
+AWS_SECRET_ACCESS_KEY= '********'
 AWS_STORAGE_BUCKET_NAME='techshop-bucket'
 
 
